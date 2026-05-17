@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Medicat USB & Bios Beep Code Verifier</title>
+<meta name="description" content="Guía técnica sobre Medicat USB y la herramienta Bios Beep Code Verifier para diagnóstico de hardware."/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ============ LOADER INICIAL ============ -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-ring"></div>
+  <p class="loader-text">Inicializando sistema<span class="dots">...</span></p>
+</div>
+
+<!-- ============ CANVAS DE PARTÍCULAS ============ -->
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<!-- ============ HEADER FIJO ============ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-glyph">🚬</span>
+    <span class="brand-name">AGUS<span class="accent">Y</span>PILAR</span>
+  </div>
+  <nav class="main-nav" aria-label="Navegación principal">
+    <button class="nav-btn" data-target="medicat">¿Qué es Medicat USB?</button>
+    <button class="nav-btn" data-target="biosbeep">Bios Beep Code Verifier</button>
+    <button class="nav-btn" data-target="diagnostico">Diagnóstico y Reparación</button>
+  </nav>
+  <div class="clock-box">
+    <span id="clock" class="clock">--:--:--</span>
+    <span id="date" class="date">--/--/----</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero reveal">
+  <h1 class="hero-title">Diagnóstico Profesional<br/><span class="glow">con Medicat USB</span></h1>
+  <p class="hero-sub">Una guía técnica completa sobre Medicat USB y la herramienta <strong>Bios Beep Code Verifier</strong> para detectar e interpretar errores de hardware mediante los pitidos de la BIOS.</p>
+  <div class="hero-cta">
+    <button class="btn btn-primary" data-target="biosbeep">Ver herramienta principal</button>
+    <button class="btn btn-ghost" data-target="medicat">Aprender sobre Medicat</button>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 1: MEDICAT USB ============ -->
+<section id="medicat" class="section reveal">
+  <header class="section-head">
+    <span class="kicker">Sección 01</span>
+    <h2>¿Qué es Medicat USB?</h2>
+    <p class="lead">Una colección portátil de herramientas de diagnóstico, recuperación y mantenimiento de PC, todo arrancable desde una sola memoria USB.</p>
+  </header>
+
+  <div class="cards-grid">
+    <article class="card">
+      <div class="card-icon">💾</div>
+      <h3>Definición</h3>
+      <p>Medicat USB es un kit multiarranque que reúne sistemas operativos en vivo (Windows PE, Linux) y decenas de utilidades técnicas listas para usar sin instalar nada en el equipo.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">🛠️</div>
+      <h3>Para qué sirve</h3>
+      <p>Permite reparar Windows, recuperar archivos perdidos, escanear malware, diagnosticar hardware, clonar discos y resetear contraseñas, todo desde un USB booteable.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">👨‍💻</div>
+      <h3>Por qué es útil</h3>
+      <p>Para técnicos informáticos es una navaja suiza: una sola herramienta para enfrentar fallas que normalmente requerirían instalar múltiples programas.</p>
+    </article>
+  </div>
+
+  <h3 class="sub-title">📜 Historia y evolución</h3>
+  <ol class="timeline">
+    <li>
+      <div class="t-dot"></div>
+      <div class="t-content">
+        <span class="t-year">2014</span>
+        <h4>Nacimiento del proyecto</h4>
+        <p>El usuario "Jayro" publica las primeras versiones de Medicat USB como alternativa libre a Hiren's BootCD, que había dejado de actualizarse.</p>
+      </div>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <div class="t-content">
+        <span class="t-year">2016</span>
+        <h4>Inclusión de Mini Windows 10</h4>
+        <p>Se incorpora un entorno Windows PE moderno, ampliando la compatibilidad con hardware y software actual.</p>
+      </div>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <div class="t-content">
+        <span class="t-year">2019</span>
+        <h4>Versión 19.x</h4>
+        <p>Reorganización completa del menú Ventoy y mejor soporte UEFI / Secure Boot.</p>
+      </div>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <div class="t-content">
+        <span class="t-year">Hoy</span>
+        <h4>Estándar entre técnicos</h4>
+        <p>Es uno de los USB de rescate más populares, mantenido y actualizado por la comunidad.</p>
+      </div>
+    </li>
+  </ol>
+
+  <h3 class="sub-title">⚖️ Comparación con herramientas similares</h3>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>Herramienta</th><th>Estado</th><th>Tamaño aprox.</th><th>Soporte UEFI</th><th>WinPE incluido</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Medicat USB</strong></td><td>Activa</td><td>~22 GB</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Hiren's BootCD PE</td><td>Activa</td><td>~1.2 GB</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Ultimate Boot CD</td><td>Limitada</td><td>~750 MB</td><td>Parcial</td><td>No</td></tr>
+        <tr><td>SARDU MultiBoot</td><td>Activa</td><td>Variable</td><td>Sí</td><td>Opcional</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">✨ Ventajas principales</h3>
+  <div class="cards-grid small">
+    <div class="mini-card">🚀 <strong>Portátil</strong><span>Cabe entero en un USB</span></div>
+    <div class="mini-card">🧰 <strong>Multi-herramienta</strong><span>Cientos de utilidades</span></div>
+    <div class="mini-card">🆓 <strong>Gratuito</strong><span>Mantenido por la comunidad</span></div>
+    <div class="mini-card">🔌 <strong>Sin instalación</strong><span>Arranca en vivo</span></div>
+    <div class="mini-card">🛡️ <strong>Seguro</strong><span>No modifica el SO instalado</span></div>
+    <div class="mini-card">🌐 <strong>Offline-friendly</strong><span>No requiere internet</span></div>
+  </div>
+
+  <h3 class="sub-title">🧩 Herramientas más conocidas que incluye</h3>
+  <ul class="tag-list">
+    <li>Mini Windows 10 PE</li>
+    <li>CloneZilla</li>
+    <li>GParted</li>
+    <li>Malwarebytes</li>
+    <li>Kaspersky Rescue</li>
+    <li>Macrium Reflect</li>
+    <li>MemTest86</li>
+    <li>HDD Regenerator</li>
+    <li>CrystalDiskInfo</li>
+    <li>NT Password Reset</li>
+    <li>Recuva</li>
+    <li><strong class="hl">Bios Beep Code Verifier</strong></li>
+  </ul>
+</section>
+
+<!-- ============ SECCIÓN 2: BIOS BEEP CODE VERIFIER ============ -->
+<section id="biosbeep" class="section reveal">
+  <header class="section-head">
+    <span class="kicker">Sección 02 — Principal</span>
+    <h2>Bios Beep Code Verifier</h2>
+    <p class="lead">Bios Beep Code Verifier, es una utilidad incluida en MediCat USB.
+Esta utilidad se usa para detectar fallas en una PC usando los pitidos que hace la BIOS al encender el equipo.
+tiene una lista de códigos de sonidos de distintas BIOS, como AMI, Phoenix e IBM. Además, puede producir esos sonidos con los que iguala con los que hace la PC
+Su función ayuda a localizar fallas de hardware. Según la cantidad y el tipo de pitidos, y asi sabes si el problema está en la placa de video, el procesador, la BIOS o la placa madre.
+ejemplo: si una pc hace muchos pitidos al encender, el técnico puede usar la bios beep code y asi saber si ese sonido es igual con algún código que tiene la bios beep code y saber que componente esta fallando</p>
+  </header>
+
+  <div class="cards-grid">
+    <article class="card">
+      <div class="card-icon">🔊</div>
+      <h3>Qué es</h3>
+      <p>Es un programa que cataloga los <em>beep codes</em> de los principales fabricantes de BIOS (AMI, Award, Phoenix, IBM) y los reproduce para que el técnico los compare con lo que escucha al encender el equipo.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Para qué sirve</h3>
+      <p>Identificar rápidamente fallas en RAM, tarjeta gráfica, procesador, BIOS o placa madre, según el patrón de pitidos emitido durante el POST.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">🧠</div>
+      <h3>Cómo ayuda</h3>
+      <p>Ahorra tiempo de diagnóstico: en lugar de desmontar componentes, el técnico interpreta el sonido y va directo al problema.</p>
+    </article>
+  </div>
+
+  <h3 class="sub-title">📋 Tabla de códigos de pitidos comunes</h3>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>BIOS</th><th>Patrón</th><th>Significado probable</th></tr></thead>
+      <tbody>
+<!-- AMI BIOS -->
+        <tr><td>AMI</td><td>1 corto</td><td>Error de refresco de la memoria RAM</td></tr>
+        <tr><td>AMI</td><td>2 cortos</td><td>Error de paridad en la memoria RAM base</td></tr>
+        <tr><td>AMI</td><td>3 cortos</td><td>Error en los primeros 64 KB de RAM</td></tr>
+        <tr><td>AMI</td><td>4 cortos</td><td>Error en el temporizador del sistema (System Timer)</td></tr>
+        <tr><td>AMI</td><td>5 cortos</td><td>Error del procesador (CPU)</td></tr>
+        <tr><td>AMI</td><td>6 cortos</td><td>Error del controlador del teclado (Gate A20)</td></tr>
+        <tr><td>AMI</td><td>7 cortos</td><td>Error de excepción de modo virtual</td></tr>
+        <tr><td>AMI</td><td>8 cortos</td><td>Error de lectura/escritura en la memoria de video</td></tr>
+        <tr><td>AMI</td><td>9 cortos</td><td>Error de suma de comprobación (Checksum) de la ROM BIOS</td></tr>
+        <tr><td>AMI</td><td>10 cortos</td><td>Error en el registro de apagado CMOS</td></tr>
+        <tr><td>AMI</td><td>11 cortos</td><td>Error en la memoria caché</td></tr>
+        <tr><td>AMI</td><td>1 largo + 3 cortos</td><td>Fallo en la prueba de memoria RAM</td></tr>
+        <tr><td>AMI</td><td>1 largo + 8 cortos</td><td>Fallo en la prueba de pantalla o tarjeta de video</td></tr>
+
+        <!-- Award BIOS -->
+        <tr><td>Award</td><td>1 corto</td><td>Arranque normal del sistema</td></tr>
+        <tr><td>Award</td><td>2 cortos</td><td>Error en la configuración de CMOS</td></tr>
+        <tr><td>Award</td><td>1 largo + 1 corto</td><td>Error en la memoria RAM o placa base</td></tr>
+        <tr><td>Award</td><td>1 largo + 2 cortos</td><td>Problema de tarjeta gráfica o monitor</td></tr>
+        <tr><td>Award</td><td>1 largo + 3 cortos</td><td>Error de teclado o controlador de teclado</td></tr>
+        <tr><td>Award</td><td>1 largo + 9 cortos</td><td>Error en la ROM de la BIOS</td></tr>
+        <tr><td>Award</td><td>Largos continuos</td><td>Error en la memoria RAM (mal insertada o dañada)</td></tr>
+        <tr><td>Award</td><td>Cortos continuos</td><td>Problema de fuente de alimentación o sobrecalentamiento</td></tr>
+
+        <!-- IBM BIOS -->
+        <tr><td>IBM</td><td>Ningún pitido</td><td>Sin corriente, cortocircuito o fuente dañada</td></tr>
+        <tr><td>IBM</td><td>1 corto</td><td>Arranque normal (POST exitoso)</td></tr>
+        <tr><td>IBM</td><td>2 cortos</td><td>Error en el POST (código en pantalla)</td></tr>
+        <tr><td>IBM</td><td>1 pitido continuo</td><td>Fuente de alimentación defectuosa o teclado atascado</td></tr>
+        <tr><td>IBM</td><td>Cortos repetitivos</td><td>Fallo en la fuente de alimentación o placa base</td></tr>
+        <tr><td>IBM</td><td>1 largo + 1 corto</td><td>Error general en la placa base</td></tr>
+        <tr><td>IBM</td><td>1 largo + 2 cortos</td><td>Error en el adaptador de video (Monocromo/CGA)</td></tr>
+        <tr><td>IBM</td><td>1 largo + 3 cortos</td><td>Error en el adaptador de video (EGA)</td></tr>
+        <tr><td>IBM</td><td>3 largos</td><td>Error en la tarjeta del teclado</td></tr>
+
+        <!-- Phoenix BIOS -->
+        <tr><td>Phoenix</td><td>1-1-3</td><td>Error de lectura/escritura en CMOS</td></tr>
+        <tr><td>Phoenix</td><td>1-1-4</td><td>Fallo de suma de comprobación (Checksum) del BIOS / ROM</td></tr>
+        <tr><td>Phoenix</td><td>1-2-1</td><td>Error en el temporizador de intervalo programable</td></tr>
+        <tr><td>Phoenix</td><td>1-2-2</td><td>Fallo en la inicialización del controlador DMA</td></tr>
+        <tr><td>Phoenix</td><td>1-3-1</td><td>Error de verificación del refresco de RAM</td></tr>
+        <tr><td>Phoenix</td><td>1-3-3</td><td>Fallo en los primeros 64 KB de memoria RAM</td></tr>
+        <tr><td>Phoenix</td><td>3-1-1</td><td>Fallo en el registro DMA esclavo</td></tr>
+        <tr><td>Phoenix</td><td>3-1-2</td><td>Fallo en el registro DMA maestro</td></tr>
+        <tr><td>Phoenix</td><td>3-2-4</td><td>Fallo en el controlador del teclado</td></tr>
+        <tr><td>Phoenix</td><td>3-3-4</td><td>Fallo en la inicialización de la tarjeta de video</td></tr>
+        <tr><td>Phoenix</td><td>4-2-1</td><td>Fallo en el temporizador del reloj del sistema (RTC)</td></tr>
+        <tr><td>Phoenix</td><td>4-2-3</td><td>Fallo en el controlador del teclado (Gate A20)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== GUÍA VISUAL PASO A PASO ===== -->
+  <h3 class="sub-title">🖥️ Guía paso a paso dentro de Medicat USB</h3>
+  <p class="lead-sm">Sigue estas 5 capturas para acceder y usar Bios Beep Code Verifier desde el menú de Medicat.</p>
+
+  <div class="steps">
+    <figure class="step reveal">
+      <div class="step-num">01</div>
+      <img src="img1.png" alt="Arranque de Medicat USB" loading="lazy"/>
+      <figcaption>
+        <h4>Arrancar Medicat USB</h4>
+        <p>Inserta el USB de Medicat, reinicia la PC y selecciona el dispositivo en el menú de arranque (F12 / F8 / Esc según fabricante). Aparece el menú principal de Ventoy.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="step reveal">
+      <div class="step-num">02</div>
+      <img src="img2.png" alt="Entrar al entorno Mini Windows 10" loading="lazy"/>
+      <figcaption>
+        <h4>Entrar a Mini Windows 10 PE</h4>
+        <p>Desde el menú de Medicat selecciona <em>Mini Windows 10</em>. Espera a que cargue el escritorio en vivo, sin tocar el sistema instalado.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="step reveal">
+      <div class="step-num">03</div>
+      <img src="img3.png" alt="Abrir el menú de herramientas técnicas" loading="lazy"/>
+      <figcaption>
+        <h4>Abrir el menú de herramientas</h4>
+        <p>En el escritorio busca el acceso <em>Tools</em> o <em>Mini Windows Tools</em>. Allí están organizadas todas las utilidades por categoría: hardware, red, seguridad, etc.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="step reveal">
+      <div class="step-num">04</div>
+      <img src="img4.png" alt="Localizar Bios Beep Code Verifier" loading="lazy"/>
+      <figcaption>
+        <h4>Localizar Bios Beep Code Verifier</h4>
+        <p>Entra a la categoría <strong>Hardware</strong> o <strong>BIOS</strong> y haz clic en <em>Bios Beep Code Verifier</em>. La herramienta se abre como una aplicación portable, sin instalación.</p>
+      </figcaption>
+    </figure>
+
+    <figure class="step reveal">
+      <div class="step-num">05</div>
+      <img src="img5.png" alt="Interpretar los pitidos" loading="lazy"/>
+      <figcaption>
+        <h4>Interpretar los pitidos</h4>
+        <p>Selecciona el fabricante de la BIOS (AMI / Award / Phoenix). Reproduce los patrones, compáralos con lo que escuchaste al encender el equipo y lee el diagnóstico mostrado en pantalla.</p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- ===== ACORDEÓN DE TIPS / ADVERTENCIAS ===== -->
+  <h3 class="sub-title">💡 Tips, advertencias y buenas prácticas</h3>
+  <div class="accordion">
+    <details>
+      <summary>⚠️ Antes de diagnosticar por pitidos</summary>
+      <p>Verifica que el speaker interno (buzzer) esté conectado a la placa madre. Sin él, no escucharás los códigos. Algunos equipos modernos lo omiten y usan LEDs de diagnóstico.</p>
+    </details>
+    <details>
+      <summary>🧠 Tip: identifica primero el fabricante</summary>
+      <p>El mismo patrón de pitidos significa cosas distintas según AMI, Award o Phoenix. Revisa el modelo de la placa madre antes de interpretar.</p>
+    </details>
+    <details>
+      <summary>🔌 Tip: descarta lo simple primero</summary>
+      <p>Reasienta la RAM, limpia los contactos con un borrador y prueba un módulo a la vez. Muchos pitidos de "memoria" se resuelven así.</p>
+    </details>
+    <details>
+      <summary>🛑 Advertencia: no confundas el beep de POST con alarmas térmicas</summary>
+      <p>Algunas placas emiten pitidos continuos por sobrecalentamiento del CPU. Verifica el ventilador y la pasta térmica antes de cambiar componentes.</p>
+    </details>
+  </div>
+
+  <div class="callouts">
+    <div class="callout info">
+      <strong>ℹ️ Dato útil</strong>
+      <p>Bios Beep Code Verifier funciona también fuera de Medicat: es portable y puede copiarse a cualquier USB.</p>
+    </div>
+    <div class="callout warn">
+      <strong>⚠️ Cuidado</strong>
+      <p>No manipules componentes con la fuente conectada. Desconecta y descarga la electricidad estática antes de tocar la placa.</p>
+    </div>
+    <div class="callout ok">
+      <strong>✅ Recomendación</strong>
+      <p>Documenta cada diagnóstico (foto del equipo, modelo de BIOS, patrón escuchado). Te será útil para reparaciones futuras.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 3: DIAGNÓSTICO Y REPARACIÓN ============ -->
+<section id="diagnostico" class="section reveal">
+  <header class="section-head">
+    <span class="kicker">Sección 03</span>
+    <h2>Diagnóstico y Reparación</h2>
+    <p class="lead">Procedimientos, errores comunes y herramientas que todo técnico debería dominar para diagnosticar y reparar PCs eficientemente.</p>
+  </header>
+
+  <h3 class="sub-title">⚙️ Errores comunes de BIOS</h3>
+  <div class="cards-grid">
+    <article class="card">
+      <div class="card-icon">🔋</div>
+      <h3>CMOS Checksum Error</h3>
+      <p>La pila CR2032 está agotada. La BIOS pierde su configuración al apagar. <em>Solución:</em> reemplazar la pila.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">💽</div>
+      <h3>Disk Boot Failure</h3>
+      <p>La BIOS no encuentra un dispositivo arrancable. <em>Solución:</em> revisar orden de arranque, cables SATA o estado del disco.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">🧠</div>
+      <h3>Memory Test Failed</h3>
+      <p>Módulo de RAM defectuoso o mal asentado. <em>Solución:</em> probar con MemTest86 (incluido en Medicat).</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">🎮</div>
+      <h3>VGA Not Detected</h3>
+      <p>La tarjeta gráfica no responde. <em>Solución:</em> reasentar GPU, probar otro slot PCIe o usar gráficos integrados.</p>
+    </article>
+  </div>
+
+  <h3 class="sub-title">🧪 Tabla de herramientas técnicas recomendadas</h3>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Herramienta</th><th>Uso</th><th>Categoría</th></tr></thead>
+      <tbody>
+        <tr><td>MemTest86</td><td>Probar memoria RAM</td><td>Hardware</td></tr>
+        <tr><td>CrystalDiskInfo</td><td>Estado SMART de discos</td><td>Almacenamiento</td></tr>
+        <tr><td>HWiNFO</td><td>Información detallada del sistema</td><td>Diagnóstico</td></tr>
+        <tr><td>Bios Beep Code Verifier</td><td>Interpretar pitidos POST</td><td>BIOS</td></tr>
+        <tr><td>CloneZilla</td><td>Clonado y respaldo de discos</td><td>Recuperación</td></tr>
+        <tr><td>Malwarebytes</td><td>Eliminación de malware</td><td>Seguridad</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">✅ Checklist de mantenimiento preventivo</h3>
+  <ul class="checklist">
+    <li><label><input type="checkbox"/> <span>Limpiar polvo de ventiladores y disipadores</span></label></li>
+    <li><label><input type="checkbox"/> <span>Renovar pasta térmica del CPU cada 2 años</span></label></li>
+    <li><label><input type="checkbox"/> <span>Verificar voltajes y temperaturas con HWiNFO</span></label></li>
+    <li><label><input type="checkbox"/> <span>Probar la RAM con MemTest86</span></label></li>
+    <li><label><input type="checkbox"/> <span>Revisar SMART del disco con CrystalDiskInfo</span></label></li>
+    <li><label><input type="checkbox"/> <span>Actualizar drivers críticos (chipset, GPU)</span></label></li>
+    <li><label><input type="checkbox"/> <span>Crear punto de restauración o imagen del sistema</span></label></li>
+    <li><label><input type="checkbox"/> <span>Escanear malware con Malwarebytes</span></label></li>
+  </ul>
+
+  <h3 class="sub-title">🔧 Consejos de reparación</h3>
+  <div class="cards-grid small">
+    <div class="mini-card">🔍 <strong>Observa antes de tocar</strong><span>LEDs, olores, sonidos</span></div>
+    <div class="mini-card">📷 <strong>Fotografía conexiones</strong><span>Antes de desarmar</span></div>
+    <div class="mini-card">🧤 <strong>Usa pulsera antiestática</strong><span>Protege componentes</span></div>
+    <div class="mini-card">🧹 <strong>Trabaja en zona limpia</strong><span>Sin polvo ni líquidos</span></div>
+    <div class="mini-card">🗒️ <strong>Documenta el caso</strong><span>Síntoma, prueba, resultado</span></div>
+    <div class="mini-card">🧪 <strong>Cambia de a un componente</strong><span>Para aislar fallas</span></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ BOTÓN VOLVER ARRIBA ============ -->
+<button id="toTop" class="to-top" aria-label="Volver arriba">▲</button>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>BIOSBEEPLAB</h4>
+      <p>Recurso educativo sobre Medicat USB y la herramienta Bios Beep Code Verifier.</p>
+    </div>
+    <div>
+      <h4>Secciones</h4>
+      <ul>
+        <li><a href="#medicat">Medicat USB</a></li>
+        <li><a href="#biosbeep">Bios Beep Code Verifier</a></li>
+        <li><a href="#diagnostico">Diagnóstico y Reparación</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Exposición</h4>
+      <p>Prácticas profesionales — Soporte y mantenimiento de equipo de cómputo.</p>
+      <p class="muted">© <span id="year"></span> · Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
